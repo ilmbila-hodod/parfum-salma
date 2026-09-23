@@ -9,6 +9,10 @@
   <meta name="description" content="PARFUM SALMA - عطور رجالية ونسائية، العود والمسك ومستحضرات التجميل.">
   <meta name="theme-color" content="#3b2418">
 
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
   <style>
     * {
       box-sizing: border-box;
@@ -199,6 +203,19 @@
       font-size: 20px;
     }
 
+    /* أيقونات مواقع التواصل */
+    .social-icon {
+      font-size: 22px;
+    }
+
+    .instagram .social-icon {
+      color: #3b2418;
+    }
+
+    .tiktok .social-icon {
+      color: #3b2418;
+    }
+
     .qr-section {
       text-align: center;
       margin-top: 27px;
@@ -266,6 +283,7 @@
 
 
     <div class="languages">
+
       <button class="lang-btn active" onclick="changeLanguage('ar', this)">
         العربية
       </button>
@@ -277,6 +295,7 @@
       <button class="lang-btn" onclick="changeLanguage('en', this)">
         English
       </button>
+
     </div>
 
 
@@ -328,6 +347,7 @@
         <!-- الاتصال -->
         <a class="action"
            href="tel:+212682713094">
+
           <span class="icon">📞</span>
 
           <span data-ar="اتصل بنا"
@@ -335,6 +355,7 @@
                 data-en="Call us">
             اتصل بنا
           </span>
+
         </a>
 
 
@@ -343,6 +364,7 @@
            href="https://wa.me/212682713094"
            target="_blank"
            rel="noopener">
+
           <span class="icon">💬</span>
 
           <span data-ar="تواصل معنا عبر WhatsApp"
@@ -350,6 +372,7 @@
                 data-en="Contact us on WhatsApp">
             تواصل معنا عبر WhatsApp
           </span>
+
         </a>
 
 
@@ -359,9 +382,10 @@
            target="_blank"
            rel="noopener">
 
-          <span class="icon">📸</span>
+          <i class="fa-brands fa-instagram social-icon"></i>
 
           <span>Instagram</span>
+
         </a>
 
 
@@ -371,14 +395,16 @@
            target="_blank"
            rel="noopener">
 
-          <span class="icon">♪</span>
+          <i class="fa-brands fa-tiktok social-icon"></i>
 
           <span>TikTok</span>
+
         </a>
 
 
         <!-- حفظ معلومات الاتصال -->
-        <button class="action save" onclick="saveContact()">
+        <button class="action save"
+                onclick="saveContact()">
 
           <span class="icon">👤</span>
 
@@ -392,7 +418,8 @@
 
 
         <!-- مشاركة -->
-        <button class="action share" onclick="shareCard()">
+        <button class="action share"
+                onclick="shareCard()">
 
           <span class="icon">↗️</span>
 
@@ -439,6 +466,7 @@
   </main>
 
 
+  <!-- QR CODE LIBRARY -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 
@@ -563,4 +591,4 @@ END:VCARD`;
   </script>
 
 </body>
-  </html>
+</html>
