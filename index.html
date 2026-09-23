@@ -139,14 +139,30 @@
     }
 
     .service {
-      padding: 14px 8px;
-      text-align: center;
-      background: #f5ede6;
-      border-radius: 15px;
-      border: 1px solid #e2cdbb;
-      font-size: 14px;
-      color: #513222;
-    }
+  padding: 14px 8px;
+  text-align: center;
+  background: #f5ede6;
+  border-radius: 15px;
+  border: 1px solid #e2cdbb;
+  font-size: 14px;
+  color: #513222;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.service:active {
+  transform: scale(1.06);
+  box-shadow: 0 8px 20px rgba(59,36,24,.18);
+}
+      
+      
+      
+      
+      
+      
+      
+    
 
     .buttons {
       display: grid;
