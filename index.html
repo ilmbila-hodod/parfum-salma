@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PARFUM SALMA | Digital Business Card</title>
+
+  <meta name="description" content="PARFUM SALMA - عطور رجالية ونسائية، العود والمسك ومستحضرات التجميل.">
+  <meta name="theme-color" content="#3b2418">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, "Tahoma", sans-serif;
+      background:
+        radial-gradient(circle at top left, #ead8c8 0%, transparent 35%),
+        linear-gradient(145deg, #f8f3ee, #e9d9ca);
+      color: #3b2418;
+      min-height: 100vh;
+      padding: 20px 12px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 470px;
+      margin: auto;
+      background: rgba(255,255,255,0.96);
+      border: 1px solid rgba(83,52,35,0.18);
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(59,36,24,0.18);
+    }
+
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 42px 22px 35px;
+      color: white;
+      background:
+        linear-gradient(135deg, #2c1a12, #593824 55%, #8b6348);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,.13), transparent 20%),
+        radial-gradient(circle at 80% 80%, rgba(255,255,255,.08), transparent 25%);
+      pointer-events: none;
+    }
+
+    .logo {
+      position: relative;
+      z-index: 1;
+      width: 105px;
+      height: 105px;
+      margin: auto;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,.75);
+      background: linear-gradient(145deg, #b98a65, #704a32);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Georgia, serif;
+      font-size: 27px;
+      letter-spacing: 2px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+
+    .brand {
+      position: relative;
+      z-index: 1;
+      margin-top: 20px;
+      font-family: Georgia, serif;
+      font-size: 31px;
+      letter-spacing: 2px;
+    }
+
+    .subtitle {
+      position: relative;
+      z-index: 1;
+      margin-top: 9px;
+      font-size: 14px;
+      opacity: .9;
+    }
+
+    .languages {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 18px 15px 5px;
+    }
+
+    .lang-btn {
+      border: 1px solid #b99476;
+      background: #fff;
+      color: #543523;
+      border-radius: 30px;
+      padding: 8px 14px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: .25s;
+    }
+
+    .lang-btn.active,
+    .lang-btn:hover {
+      background: #4a2d1d;
+      color: #fff;
+    }
+
+    .content {
+      padding: 22px;
+    }
+
+    .intro {
+      text-align: center;
+      line-height: 1.8;
+      color: #634936;
+      margin-bottom: 22px;
+      font-size: 15px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .service {
+      padding: 14px 8px;
+      text-align: center;
+      background: #f5ede6;
+      border-radius: 15px;
+      border: 1px solid #e2cdbb;
+      font-size: 14px;
+      color: #513222;
+    }
+
+    .buttons {
+      display: grid;
+      gap: 11px;
+    }
+
+    .action {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px;
+      border-radius: 16px;
+      border: 1px solid #d5b9a3;
+      color: #3b2418;
+      background: #fff;
+      font-weight: bold;
+      transition: .25s;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .action:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(59,36,24,.12);
+    }
+
+    .whatsapp {
+      background: #3f291c;
+      color: #fff;
+      border-color: #3f291c;
+    }
+
+    .instagram {
+      background: #f8eee7;
+    }
+
+    .tiktok {
+      background: #eee4dc;
+    }
+
+    .save {
+      background: #c29a76;
+      color: white;
+      border-color: #c29a76;
+    }
+
+    .share {
+      background: #fff;
+    }
+
+    .icon {
+      font-size: 20px;
+    }
+
+    .qr-section {
+      text-align: center;
+      margin-top: 27px;
+      padding-top: 25px;
+      border-top: 1px solid #eadbd0;
+    }
+
+    .qr-section h3 {
+      font-size: 17px;
+      margin-bottom: 14px;
+      font-family: Georgia, serif;
+    }
+
+    #qrcode {
+      display: inline-block;
+      padding: 12px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(59,36,24,.12);
+    }
+
+    .qr-text {
+      font-size: 12px;
+      margin-top: 10px;
+      color: #765b47;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: #8a6d57;
+    }
+
+    @media (max-width: 360px) {
+      .brand {
+        font-size: 26px;
+      }
+
+      .content {
+        padding: 17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="card">
+
+    <header class="hero">
+
+      <div class="logo">PS</div>
+
+      <h1 class="brand">PARFUM SALMA</h1>
+
+      <p class="subtitle"
+         data-ar="عطور وأناقة وجمال"
+         data-fr="Parfums, élégance & beauté"
+         data-en="Perfumes, elegance & beauty">
+        عطور وأناقة وجمال
+      </p>
+
+    </header>
+
+
+    <div class="languages">
+      <button class="lang-btn active" onclick="changeLanguage('ar', this)">
+        العربية
+      </button>
+
+      <button class="lang-btn" onclick="changeLanguage('fr', this)">
+        Français
+      </button>
+
+      <button class="lang-btn" onclick="changeLanguage('en', this)">
+        English
+      </button>
+    </div>
+
+
+    <section class="content">
+
+      <p class="intro"
+         data-ar="اكتشفوا مجموعتنا من العطور الرجالية والنسائية، عطور العود والمسك ومستحضرات التجميل."
+         data-fr="Découvrez notre sélection de parfums pour femmes et hommes, parfums d’oud, musc et produits cosmétiques."
+         data-en="Discover our selection of women's and men's perfumes, oud and musk fragrances, and beauty products.">
+        اكتشفوا مجموعتنا من العطور الرجالية والنسائية، عطور العود والمسك ومستحضرات التجميل.
+      </p>
+
+
+      <div class="services">
+
+        <div class="service"
+             data-ar="عطور رجالية"
+             data-fr="Parfums Homme"
+             data-en="Men's Perfumes">
+          عطور رجالية
+        </div>
+
+        <div class="service"
+             data-ar="عطور نسائية"
+             data-fr="Parfums Femme"
+             data-en="Women's Perfumes">
+          عطور نسائية
+        </div>
+
+        <div class="service"
+             data-ar="العود والمسك"
+             data-fr="Oud & Musc"
+             data-en="Oud & Musk">
+          العود والمسك
+        </div>
+
+        <div class="service"
+             data-ar="مستحضرات التجميل"
+             data-fr="Produits Cosmétiques"
+             data-en="Cosmetics">
+          مستحضرات التجميل
+        </div>
+
+      </div>
+
+
+      <div class="buttons">
+
+        <!-- الاتصال -->
+        <a class="action"
+           href="tel:+212682713094">
+          <span class="icon">📞</span>
+
+          <span data-ar="اتصل بنا"
+                data-fr="Nous appeler"
+                data-en="Call us">
+            اتصل بنا
+          </span>
+        </a>
+
+
+        <!-- WhatsApp -->
+        <a class="action whatsapp"
+           href="https://wa.me/212682713094"
+           target="_blank"
+           rel="noopener">
+          <span class="icon">💬</span>
+
+          <span data-ar="تواصل معنا عبر WhatsApp"
+                data-fr="Contactez-nous sur WhatsApp"
+                data-en="Contact us on WhatsApp">
+            تواصل معنا عبر WhatsApp
+          </span>
+        </a>
+
+
+        <!-- Instagram -->
+        <a class="action instagram"
+           href="https://www.instagram.com/parfum.salma?stkn=MTQydW9iZ3AxdjY4MA=="
+           target="_blank"
+           rel="noopener">
+
+          <span class="icon">📸</span>
+
+          <span>Instagram</span>
+        </a>
+
+
+        <!-- TikTok -->
+        <a class="action tiktok"
+           href="https://www.tiktok.com/@salmaa.parfum?_r=1&_t=ZS-99yTpNyj8c9"
+           target="_blank"
+           rel="noopener">
+
+          <span class="icon">♪</span>
+
+          <span>TikTok</span>
+        </a>
+
+
+        <!-- حفظ معلومات الاتصال -->
+        <button class="action save" onclick="saveContact()">
+
+          <span class="icon">👤</span>
+
+          <span data-ar="حفظ معلومات الاتصال"
+                data-fr="Enregistrer le contact"
+                data-en="Save contact">
+            حفظ معلومات الاتصال
+          </span>
+
+        </button>
+
+
+        <!-- مشاركة -->
+        <button class="action share" onclick="shareCard()">
+
+          <span class="icon">↗️</span>
+
+          <span data-ar="مشاركة البطاقة"
+                data-fr="Partager la carte"
+                data-en="Share card">
+            مشاركة البطاقة
+          </span>
+
+        </button>
+
+      </div>
+
+
+      <!-- QR CODE -->
+
+      <section class="qr-section">
+
+        <h3
+          data-ar="امسح QR Code لفتح البطاقة"
+          data-fr="Scannez le QR Code pour ouvrir la carte"
+          data-en="Scan the QR Code to open the card">
+          امسح QR Code لفتح البطاقة
+        </h3>
+
+        <div id="qrcode"></div>
+
+        <p class="qr-text"
+           data-ar="شارك البطاقة بسهولة مع عملائك"
+           data-fr="Partagez facilement votre carte avec vos clients"
+           data-en="Easily share your card with your customers">
+          شارك البطاقة بسهولة مع عملائك
+        </p>
+
+      </section>
+
+    </section>
+
+
+    <footer>
+      © 2026 PARFUM SALMA
+    </footer>
+
+  </main>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+
+  <script>
+
+    /* تغيير اللغة */
+
+    function changeLanguage(lang, button) {
+
+      document.documentElement.lang = lang;
+
+      document.documentElement.dir =
+        lang === "ar" ? "rtl" : "ltr";
+
+      document.querySelectorAll("[data-" + lang + "]")
+        .forEach(element => {
+
+          element.textContent =
+            element.getAttribute("data-" + lang);
+
+        });
+
+      document.querySelectorAll(".lang-btn")
+        .forEach(btn => btn.classList.remove("active"));
+
+      button.classList.add("active");
+    }
+
+
+    /* حفظ معلومات الاتصال */
+
+    function saveContact() {
+
+      const vcard =
+`BEGIN:VCARD
+VERSION:3.0
+FN:PARFUM SALMA
+ORG:PARFUM SALMA
+TEL;TYPE=CELL:+212682713094
+URL:https://www.instagram.com/parfum.salma
+URL:https://www.tiktok.com/@salmaa.parfum
+NOTE:Parfums Homme et Femme - Oud - Musc - Produits Cosmétiques
+END:VCARD`;
+
+      const blob = new Blob(
+        [vcard],
+        { type: "text/vcard;charset=utf-8" }
+      );
+
+      const url = URL.createObjectURL(blob);
+
+      const link = document.createElement("a");
+
+      link.href = url;
+      link.download = "PARFUM-SALMA.vcf";
+
+      document.body.appendChild(link);
+
+      link.click();
+
+      document.body.removeChild(link);
+
+      URL.revokeObjectURL(url);
+    }
+
+
+    /* مشاركة البطاقة */
+
+    async function shareCard() {
+
+      const shareData = {
+        title: "PARFUM SALMA",
+        text: "PARFUM SALMA - Parfums, Oud, Musc & Cosmétiques",
+        url: window.location.href
+      };
+
+      if (navigator.share) {
+
+        try {
+
+          await navigator.share(shareData);
+
+        } catch (error) {
+
+          console.log("Share cancelled");
+
+        }
+
+      } else {
+
+        try {
+
+          await navigator.clipboard.writeText(
+            window.location.href
+          );
+
+          alert("تم نسخ رابط البطاقة");
+
+        } catch (error) {
+
+          alert("انسخ رابط البطاقة لمشاركته.");
+
+        }
+      }
+    }
+
+
+    /* QR Code */
+
+    new QRCode(
+      document.getElementById("qrcode"),
+      {
+        text: window.location.href,
+        width: 190,
+        height: 190,
+        colorDark: "#3b2418",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+      }
+    );
+
+  </script>
+
+</body>
+  </html>
