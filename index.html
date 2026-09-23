@@ -216,6 +216,39 @@
       color: #ffffff;
     }
 
+    /* رسالة الحفظ */
+    .save-message {
+      position: fixed;
+      left: 50%;
+      bottom: 25px;
+      transform: translate(-50%, 120px);
+      width: calc(100% - 30px);
+      max-width: 420px;
+      background: linear-gradient(135deg, #3b2418, #68462f);
+      color: #fff;
+      padding: 14px 18px;
+      border-radius: 15px;
+      box-shadow: 0 12px 35px rgba(59,36,24,.28);
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+      z-index: 9999;
+      opacity: 0;
+      transition: all .4s ease;
+      pointer-events: none;
+      border: 1px solid rgba(255,255,255,.18);
+    }
+
+    .save-message.show {
+      transform: translate(-50%, 0);
+      opacity: 1;
+    }
+
+    .save-message i {
+      margin-left: 7px;
+      color: #e4c19d;
+    }
+
     .qr-section {
       text-align: center;
       margin-top: 27px;
@@ -466,15 +499,30 @@
   </main>
 
 
+  <!-- رسالة تظهر عند حفظ جهة الاتصال -->
+  <div id="saveMessage" class="save-message">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="saveMessageText">
+      تم تجهيز معلومات PARFUM SALMA للحفظ في هاتفك.
+    </span>
+  </div>
+
+
   <!-- QR CODE LIBRARY -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 
   <script>
 
+    /* اللغة الحالية */
+    let currentLanguage = "ar";
+
+
     /* تغيير اللغة */
 
     function changeLanguage(lang, button) {
+
+      currentLanguage = lang;
 
       document.documentElement.lang = lang;
 
@@ -530,6 +578,43 @@ END:VCARD`;
       document.body.removeChild(link);
 
       URL.revokeObjectURL(url);
+
+      /* إظهار الرسالة */
+      showSaveMessage();
+    }
+
+
+    /* رسالة الحفظ */
+
+    function showSaveMessage() {
+
+      const message = document.getElementById("saveMessage");
+      const text = document.getElementById("saveMessageText");
+
+      if (currentLanguage === "fr") {
+
+        text.textContent =
+          "Les informations de PARFUM SALMA sont prêtes à être enregistrées sur votre téléphone.";
+
+      } else if (currentLanguage === "en") {
+
+        text.textContent =
+          "PARFUM SALMA contact information is ready to be saved on your phone.";
+
+      } else {
+
+        text.textContent =
+          "تم تجهيز معلومات PARFUM SALMA للحفظ في هاتفك.";
+
+      }
+
+      message.classList.add("show");
+
+      setTimeout(() => {
+
+        message.classList.remove("show");
+
+      }, 3000);
     }
 
 
